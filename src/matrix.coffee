@@ -49,7 +49,7 @@ class Matrix extends Adapter
             baseUrl: process.env.HUBOT_MATRIX_HOST_SERVER || 'https://matrix.org'
             accessToken: @access_token
             userId: @user_id
-        @client.on 'syncComplete', =>
+        @client.on 'sync', =>
             @robot.logger.info "Synced #{@client.getRooms().length} rooms"
             @emit 'connected'
         @client.on 'Room.timeline', (event, room, toStartOfTimeline) =>
